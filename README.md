@@ -39,7 +39,7 @@ TASK:
 let's go through the detailed steps for setting up the VPC, launching an Amazon-Linux-2 instance with HTTPd and a "Hello World" website, and configuring an Auto Scaling Group (ASG) with a load balancer in the `ca-central-1` region.
 
 
-### Step 1: Create VPC for EC2 Instance
+## Step 1: Create VPC for EC2 Instance
 
 1. **Login to AWS Console**: Go to the [AWS Management Console](https://aws.amazon.com/console/).
    
@@ -94,7 +94,7 @@ let's go through the detailed steps for setting up the VPC, launching an Amazon-
     - Click `Save associations`.
 
 
-### Step 2: Launch Amazon Linux 2 Instance with HTTPd
+## Step 2: Launch Amazon Linux 2 Instance with HTTPd
 
 1. **Launch Instance**:
     - Go to the EC2 Dashboard.
@@ -151,7 +151,7 @@ let's go through the detailed steps for setting up the VPC, launching an Amazon-
 
 
 
-### Step 3: Add to Auto Scaling Group with Multi-AZ Redundancy
+## Step 3: Add to Auto Scaling Group with Multi-AZ Redundancy
 
 1. **Create Launch Template**:
     - Go to the EC2 Dashboard.
@@ -190,7 +190,7 @@ let's go through the detailed steps for setting up the VPC, launching an Amazon-
     - **Basic configuration**:
         - Target type: `Instance`
         - Protocol: `HTTP`
-        - Port: `80`
+        - Port: `80` (target group listens on this port because our app listens on this port)
         - VPC: `MyVPC`
     - Click `Next`.
     - **Health checks**:
@@ -217,7 +217,7 @@ let's go through the detailed steps for setting up the VPC, launching an Amazon-
     - Click `Create Load Balancer`.
 
 
-### Step 4: Test the Setup
+## Step 4: Test the Setup
 
 1. **Access the Load Balancer DNS**:
     - Go to target group and check whether Targets are healthy
@@ -234,7 +234,7 @@ By following these steps, you have set up a VPC with public subnets in two Avail
 
 ## Terraform Steps:
 
-#### install terraform
+### install terraform
 
 ```
 sudo apt update -y
