@@ -329,7 +329,7 @@ vpc_id = "vpc-0eced1a0c6e463c0d"
 ### create launch template, ASG, Target Group, Loadbalancer
 
 ```
-cd LoadBalancer
+cd LOADBALANCER
 
 - update terraform.tfvars vars with above step values
 
