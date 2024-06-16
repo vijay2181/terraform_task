@@ -324,3 +324,27 @@ public_subnet_2_id = "subnet-081fe455765966829"
 vpc_id = "vpc-0eced1a0c6e463c0d"
 
 ```
+
+
+### create launch template, ASG, Target Group, Loadbalancer
+
+```
+cd LoadBalancer
+
+- update terraform.tfvars vars with above step values
+
+```
+lb_sg_id = "sg-0a72d9abf258c4956"
+public_sg_id = "sg-07cb0e6a56c07980e"
+public_subnet_1_id = "subnet-0bf55b0a46cdb6ba7"
+public_subnet_2_id = "subnet-081fe455765966829"
+vpc_id = "vpc-0eced1a0c6e463c0d"
+```
+
+terraform init
+terraform plan
+terraform apply
+
+- access the application using loadbalancer dns name
+example-alb-158988557.us-west-2.elb.amazonaws.com
+```
