@@ -232,7 +232,8 @@ By following these steps, you have set up a VPC with public subnets in two Avail
 
 
 
-## Terraform Steps:
+
+# Terraform Steps:
 
 ### install terraform
 
@@ -257,4 +258,28 @@ chmod 755 terraform-install.sh
 bash terraform-install.sh
 which terraform
 terraform --version
+```
+
+### create first VPC and SG seperetely
+
+```
+cd VPC
+
+- check variables.tf file for values
+
+terraform init
+terraform plan
+terraform apply
+
+Outputs:
+
+lb_sg_id = "sg-0a72d9abf258c4956"
+public_sg_id = "sg-07cb0e6a56c07980e"
+public_subnet_1_id = "subnet-0bf55b0a46cdb6ba7"
+public_subnet_2_id = "subnet-081fe455765966829"
+vpc_id = "vpc-0eced1a0c6e463c0d"
+
+- public_sg_id -> 22,80,443
+- lb_sg_id     -> 80
+- you can also allow only load balancer security group to instances if you want
 ```
