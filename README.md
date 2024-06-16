@@ -348,3 +348,12 @@ terraform apply
 - access the application using loadbalancer dns name
 example-alb-158988557.us-west-2.elb.amazonaws.com
 ```
+
+
+### Enhancements
+
+```
+- we need to use terraform remote s3 backend for statefile management
+- we need to modularize the code for reusability and readability
+- we need to implement terraform workspaces inorder to deploy in different environments
+```
