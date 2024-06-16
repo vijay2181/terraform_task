@@ -283,3 +283,44 @@ vpc_id = "vpc-0eced1a0c6e463c0d"
 - lb_sg_id     -> 80
 - you can also allow only load balancer security group to instances if you want
 ```
+
+
+### For AMI creation, to ASG use packer
+
+```
+- it is recommended to use Packer for AMI's otherwise we would have used Terraform 
+cd PACKER
+
+installing packer:
+------------------
+- my application will run on 80 port, people will access it on port 80
+sudo apt update -y
+sudo apt  install jq
+LATEST_VERSION=$(curl -s https://checkpoint-api.hashicorp.com/v1/check/packer | jq -r .current_version)
+wget https://releases.hashicorp.com/packer/${LATEST_VERSION}/packer_${LATEST_VERSION}_linux_amd64.zip
+unzip packer_${LATEST_VERSION}_linux_amd64.zip
+sudo mv packer /usr/local/bin/
+packer --version
+
+cd PACKER
+ls
+packer.pkr.hcl  userdata.sh
+
+packer init packer.pkr.hcl
+packer validate packer.pkr.hcl
+packer build packer.pkr.hcl
+
+amazon-ebs.example: AMI: ami-0a761e7046802d0a2
+
+- we have ami-id
+- we have vpc-id
+- we have public subnets(1,2)
+- security groups(instance, loadbalancer)
+
+lb_sg_id = "sg-0a72d9abf258c4956"
+public_sg_id = "sg-07cb0e6a56c07980e"
+public_subnet_1_id = "subnet-0bf55b0a46cdb6ba7"
+public_subnet_2_id = "subnet-081fe455765966829"
+vpc_id = "vpc-0eced1a0c6e463c0d"
+
+```
