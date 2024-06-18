@@ -227,6 +227,10 @@ let's go through the detailed steps for setting up the VPC, launching an Amazon-
 
 You should see the "Hello World" message, confirming that your website is working.
 
+
+![image](https://github.com/vijay2181/terraform_task/assets/66196388/9409c8c0-f395-4d38-9cd4-edd4e2bf64af)
+
+
 By following these steps, you have set up a VPC with public subnets in two Availability Zones, launched an Amazon Linux 2 instance with HTTPd, created an AMI, and configured an Auto Scaling Group with a load balancer to manage your web server automatically.
 
 
